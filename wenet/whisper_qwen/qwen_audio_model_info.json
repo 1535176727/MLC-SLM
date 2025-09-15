@@ -1,0 +1,32 @@
+{
+  "audio_encoder": {
+    "input_dim": 128,
+    "hidden_dim": 1280,
+    "num_layers": 32,
+    "conv_layers": [
+      {
+        "in_channels": 128,
+        "out_channels": 1280,
+        "kernel_size": 3,
+        "stride": 1
+      },
+      {
+        "in_channels": 1280,
+        "out_channels": 1280,
+        "kernel_size": 3,
+        "stride": 2
+      }
+    ],
+    "position_embedding_size": 1500
+  },
+  "projector": {
+    "input_dim": 1280,
+    "output_dim": 4096
+  },
+  "language_model": {
+    "hidden_size": 4096,
+    "vocab_size": 156032,
+    "num_layers": 32,
+    "intermediate_size": 11008
+  }
+}

@@ -1,0 +1,92 @@
+encoder: whisper_mhubert
+
+tokenizer: qwen
+attn_implementation: flash_attention_2
+
+freeze_whisper: True
+use_whisper_lora: false
+whisper_path: "./pre_trained_models/whisper-large-v3"
+whisper_lora_ckpt: "whisper_ft_lora32/step1/avg_3.pt" # Path to the LoRA checkpoint for Whisper, if applicable
+whisper_encoder_lora: false
+whisper_ckpt: "/public/home/cszx_yanhua/myx/node/MLC-SLM-Baseline/examples/mlcslm/whisper_finetuning/whisper_ft_full_finetuning/step1/avg_2_3_4.pt"
+whisper_encoder_lora_rank: 32
+whisper_encoder_lora_alpha: 64
+whisper_encoder_lora_dropout: 0.05
+
+freeze_mhubert: True
+mhubert_path: "./pre_trained_models/mHuBERT-147"
+mhubert_ckpt: "./mhubert_ctc/32epoch.pth"
+
+projector_checkpoint: "./SHNU-masr/step1_qwen05/epoch_3.pt"
+freeze_projector: False
+
+load_encoder: False
+encoder_checkpoint: "./SHNU-masr/step2_19_freeze_projector/avg_3.pt"
+
+decoder: qwen
+qwen_path: "./pre_trained_models/Qwen2.5-0.5B"
+freeze_qwen: False
+use_qwen_lora: False
+qwen_lora_rank: 16
+qwen_lora_alpha: 32
+qwen_lora_dropout: 0.1
+
+
+whisper_decoder_lora: false
+whisper_decoder_lora_rank: 16
+whisper_decoder_lora_alpha: 8
+whisper_decoder_lora_dropout: 0.05
+
+
+
+model: SHNU-mASR
+
+dataset: asr
+dataset_conf:
+  batch_conf:
+    batch_size: 1
+    batch_type: dynamic
+    max_frames_in_batch: 24000
+  feats_type: log_mel_spectrogram
+  filter_conf:
+    max_length: 1500
+    min_length: 0
+    token_max_length: 448
+    token_min_length: 1
+  log_mel_spectrogram_conf:
+    hop_length: 160
+    n_fft: 400
+    num_mel_bins: 128
+    padding: 0
+  resample_conf:
+    resample_rate: 16000
+  shuffle: true
+  shuffle_conf:
+    shuffle_size: 1500
+  sort: true
+  sort_conf:
+    sort_size: 500
+  spec_aug: true
+  spec_aug_conf:
+    max_f: 10
+    max_t: 50
+    num_f_mask: 2
+    num_t_mask: 2
+  spec_sub: true
+  spec_sub_conf:
+    max_t: 30
+    num_t_sub: 3
+  spec_trim: false
+  speed_perturb: true
+
+grad_clip: 5
+accum_grad: 1
+max_epoch: 6
+log_interval: 100
+input_dim: 128
+optim: adam
+optim_conf:
+  lr: 0.0001
+scheduler: warmuplr
+scheduler_conf:
+  warmup_steps: 2000
