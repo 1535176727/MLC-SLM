@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import re
+import sys
+import json
+import argparse
+from transformers.models.whisper.tokenization_whisper import BasicTextNormalizer
+from transformers.models.whisper.english_normalizer import EnglishTextNormalizer
+
+class TextNormalizer:
+    def __init__(self, lang: str):
+        self.lang = lang
+        if lang == 'en':
+            try:
+                mapping = json.load(open("./local/english.json"))
+                self.english_normalizer = EnglishTextNormalizer(mapping)
+            except (FileNotFoundError, json.JSONDecodeError) as e:
+                print(f"警告：无法加载英语映射文件，将使用 BasicTextNormalizer: {e}", file=sys.stderr)
+                self.english_normalizer = None
+        else:
+            self.english_normalizer = None
+        self.basic_normalizer = BasicTextNormalizer()
+
+    def normalize(self, text: str) -> str:
+        if not text.strip():
+            return ""
+        if self.lang == 'en' and self.english_normalizer is not None:
+            return self.english_normalizer(text)
+        else:
+            return self.basic_normalizer(text)
+
+def text_normalization(input_text, output_text, lang='en'):
+    normalizer = TextNormalizer(lang)
+
+    with open(input_text, 'r', encoding='utf-8') as fin, open(output_text, 'w', encoding='utf-8') as fout:
+        for line in fin:
+            parts = line.strip().split(maxsplit=1)
+            if len(parts) == 2:
+                uttid, ori_text = parts
+                text_tn = normalizer.normalize(ori_text)
+                fout.write(f"{uttid} {text_tn}\n")
+            else:
+                fout.write(line)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Text normalization for training and calculating error rate.')
+    parser.add_argument('--input', type=str, required=True, help='The path of input text file')
+    parser.add_argument('--output', type=str, required=True, help='The path to save normalized output')
+    parser.add_argument('--lang', type=str, default='en', help='Language code (default: en)')
+    args = parser.parse_args()
+    
+    text_normalization(args.input, args.output, args.lang)
