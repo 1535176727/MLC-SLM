@@ -112,7 +112,7 @@ nvidia-nvjitlink-cu12
 nvidia-nvtx-cu12
 omegaconf
 onnxruntime
-openai-whisper @ file:///node/myx/MLC-SLM-Baseline/whisper
+openai-whisper @ file:///whisper
 openpyxl
 packaging
 pandas
