@@ -53,7 +53,7 @@ The entire training and evaluation process is managed by the `run.sh` script, wh
 
 - **Stage 0–3**: Data preparation  
 - **Stage 4–5**: Projector training  
-- **Stage 6–7**: Joint training of projector and encoder *(skipped in this project)*  
+- **Stage 6–7**: ~~Joint training of projector and encoder~~ *(skipped in this project)*  
 - **Stage 8–9**: Joint training of projector and LLM  
 - **Stage 10**: Model averaging  
 - **Stage 11**: Inference  
