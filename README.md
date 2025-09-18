@@ -47,6 +47,19 @@ The Task 1 dataset from the [MLC-SLM Challenge](https://www.nexdata.ai/competiti
 
 ![model](model.png)
 
+
+# Training & Evaluation
+
+The entire training and evaluation process is managed by the `run.sh` script, which organizes the pipeline into the following stages:  
+
+- **Stage 0–3**: Data preparation  
+- **Stage 4–5**: Projector training  
+- **Stage 6–7**: ~~Joint training of projector and encoder~~ *(skipped in this project)*  
+- **Stage 8–9**: Joint training of projector and LLM  
+- **Stage 10**: Model averaging  
+- **Stage 11**: Inference  
+- **Stage 12**: Scoring
+
 # Results
 
 The main results of our proposed model compared with baselines and competition systems are shown below:
@@ -61,14 +74,3 @@ The main results of our proposed model compared with baselines and competition s
 | SHNU-mASR                  | 13.39   | 11.43    | 19.86       |
 | **Proposed Speech-LLM**    | 11.74   | **10.69**| 15.26       |
 
-# Training & Evaluation
-
-The entire training and evaluation process is managed by the `run.sh` script, which organizes the pipeline into the following stages:  
-
-- **Stage 0–3**: Data preparation  
-- **Stage 4–5**: Projector training  
-- **Stage 6–7**: ~~Joint training of projector and encoder~~ *(skipped in this project)*  
-- **Stage 8–9**: Joint training of projector and LLM  
-- **Stage 10**: Model averaging  
-- **Stage 11**: Inference  
-- **Stage 12**: Scoring  
