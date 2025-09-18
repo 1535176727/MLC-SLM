@@ -45,7 +45,7 @@ The Task 1 dataset from the [MLC-SLM Challenge](https://www.nexdata.ai/competiti
 
 # Architecture
 
-![绘图-9-8](/Users/meibaba/Downloads/绘图-9-8.png)
+![model](model.png)
 
 # Training & Evaluation
 
