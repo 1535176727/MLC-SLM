@@ -374,9 +374,7 @@ if [ ${stage} -le 12 ] && [ ${stop_stage} -ge 12 ]; then
       python local/Whisper_norm.py --input $test_data_dir/text_tn_space --output $test_data_dir/text_tn_space_norm
 
       python local/remove_repetition.py --input $result_dir/$decode_mode/text_space_norm --output $result_dir/$decode_mode/text_space_norm_rep
-      #for lang in English French German Japanese Korean; do
-#for lang in English-American English-Australian English-British English-Filipino English-Indian French German Italian Japanese Korean Portuguese Russian Spanish Thai Vietnamese; do
-#for lang in English French German Italian Japanese Korean Portuguese Russian Spanish Thai Vietnamese; do
+
 for lang in "${langs[@]}"; do
             echo "Processing language: $lang"
           #for lang in Japanese; do

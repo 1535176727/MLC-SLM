@@ -6,16 +6,16 @@ attn_implementation: flash_attention_2
 freeze_whisper: True
 use_whisper_lora: false
 whisper_path: "./pre_trained_models/whisper-large-v3"
-whisper_lora_ckpt: "whisper_ft_lora32/step1/avg_3.pt" # Path to the LoRA checkpoint for Whisper, if applicable
+whisper_lora_ckpt: "./pre_trained_models/whisper_lora_ft/whisper_lora_ft.pt" # Path to the LoRA checkpoint for Whisper, if applicable
 whisper_encoder_lora: false
-whisper_ckpt: "./whisper_finetuning/whisper_ft_full_finetuning/step1/avg_2_3_4.pt"
+whisper_ckpt: "./pre_trained_models/whisper_full_ft/whisper_full_ft.pt"
 whisper_encoder_lora_rank: 32
 whisper_encoder_lora_alpha: 64
 whisper_encoder_lora_dropout: 0.05
 
 freeze_mhubert: True
 mhubert_path: "./pre_trained_models/mHuBERT-147"
-mhubert_ckpt: "./mhubert_ctc/32epoch.pth"
+mhubert_ckpt: "./pre_trained_models/mhubert_ctc/32epoch.pth"
 
 projector_checkpoint: "./SHNU-masr/step1_full_fined_whisper_gated_bicross_attn_with_cat/avg_3.pt"
 freeze_projector: False

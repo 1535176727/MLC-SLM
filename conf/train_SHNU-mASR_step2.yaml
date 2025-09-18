@@ -7,7 +7,7 @@ attn_implementation: flash_attention_2
 freeze_whisper: False 
 use_whisper_lora: True
 whisper_path: "./pre_trained_models/whisper-large-v3"
-whisper_lora_ckpt: "whisper_ft_lora32/step1/avg_3.pt" # Path to the LoRA checkpoint for Whisper, if applicable
+whisper_lora_ckpt: "./pre_trained_models/whisper_lora_ft/whisper_lora_ft.pt" # Path to the LoRA checkpoint for Whisper, if applicable
 whisper_encoder_lora: True
 #whisper_ckpt: "/public/home/cszx_yanhua/myx/node/MLC-SLM-Baseline/examples/mlcslm/whisper_finetuning/whisper_ft_full_finetuning/step1/avg_2_3_4.pt"
 whisper_encoder_lora_rank: 32
@@ -15,7 +15,7 @@ whisper_encoder_lora_alpha: 64
 whisper_encoder_lora_dropout: 0.05
 
 freeze_mhubert: False
-mhubert_ckpt: "./mhubert_ctc/32epoch.pth"
+mhubert_ckpt: "./pre_trained_models/mhubert_ctc/32epoch.pth"
 mhubert_path: "./pre_trained_models/mHuBERT-147"
 
 projector_checkpoint: "./SHNU-masr/step1_full_fined_whisper_cat/avg_3.pt"
