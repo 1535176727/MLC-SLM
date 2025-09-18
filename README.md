@@ -74,3 +74,19 @@ The main results of our proposed model compared with baselines and competition s
 | SHNU-mASR                  | 13.39   | 11.43    | 19.86       |
 | **Proposed Speech-LLM**    | 11.74   | **10.69**| 15.26       |
 
+
+
+# Checkpoints
+
+We release several checkpoints for reproduction and further research:  
+
+- **LoRA-finetuned Whisper**  
+  A lightweight fine-tuned version of Whisper using LoRA adaptation.  
+
+- **Fully-finetuned Whisper**  
+  A full fine-tuning of Whisper on the MLC-SLM dataset.  
+
+- **Speech-LLM (our proposed model)**  
+  Our main proposed architecture that bridges speech encoders and LLM for multilingual conversational ASR.  
+
+All checkpoints can be found at: [Hugging Face – MLC-SLM](https://huggingface.co/YuCeong-May/MLC-SLM/tree/main)
