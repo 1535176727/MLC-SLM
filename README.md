@@ -18,7 +18,7 @@
 The Task 1 dataset from the [MLC-SLM Challenge](https://www.nexdata.ai/competition/mlc-slm) contains about **1500 hours** of multilingual conversational speech across 15 categories (11 languages, with English further divided into 5 accents).
 
 |       Category       | Hours (approx.) |
-| :------------------: | :-------------: |
+| :----------------------------: | :----------------------: |
 |  English (American)  |       100       |
 |  English (British)   |       100       |
 | English (Australian) |       100       |
@@ -47,6 +47,21 @@ The Task 1 dataset from the [MLC-SLM Challenge](https://www.nexdata.ai/competiti
 
 ![model](model.png)
 
+# Results
+
+The main results of our proposed model compared with baselines and competition systems are shown below:
+
+| **System**                | **Dev** | **Eval** | **CV-Test** |
+|----------------------------|---------|----------|-------------|
+| Whisper (LoRA-fine-tuned)  | 11.40   | 10.71    | **11.47**   |
+| Whisper (Full-fine-tuned)  | 10.99   | 10.07    | 13.11       |
+| mHuBERT (CTC)              | 29.67   | 19.99    | 68.49       |
+| NTU-Speechlab [14]         | 11.57   | 10.58    | -           |
+| Seewoo [15]                | 12.73   | 11.57    | -           |
+| SHNU-mASR [19]             | 13.39   | 11.43    | 19.86       |
+| **Proposed Speech-LLM**    | 11.74   | **10.69**| 15.26       |
+
+Our **Speech-LLM** achieves competitive performance on both the Dev and Eval sets, demonstrating the effectiveness of bridging speech encoders with LLMs for multilingual conversational ASR.
 # Training & Evaluation
 
 The entire training and evaluation process is managed by the `run.sh` script, which organizes the pipeline into the following stages:  
