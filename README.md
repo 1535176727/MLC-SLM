@@ -57,12 +57,12 @@ The main results of our proposed model compared with baselines and competition s
 | **System**                | **Dev** | **Eval** | **CV-Test** |
 |----------------------------|---------|----------|-------------|
 | Whisper (LoRA-fine-tuned)  | 11.40   | 10.71    | **11.47**   |
-| Whisper (Full-fine-tuned)  | 10.99   | 10.07    | 13.11       |
+| Whisper (Full-fine-tuned)  | **10.99**   | **10.07**    | 13.11       |
 | mHuBERT (CTC)              | 29.67   | 19.99    | 68.49       |
 | NTU-Speechlab              | 11.57   | 10.58    | -           |
 | Seewoo                     | 12.73   | 11.57    | -           |
 | SHNU-mASR                  | 13.39   | 11.43    | 19.86       |
-| **Proposed Speech-LLM**    | 11.74   | **10.69**| 15.26       |
+| **Proposed Speech-LLM**    | 11.74   | 10.69| 15.26       |
 
 
 
