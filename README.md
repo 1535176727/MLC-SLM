@@ -17,25 +17,14 @@
 
 The Task 1 dataset from the [MLC-SLM Challenge](https://www.nexdata.ai/competition/mlc-slm) contains about **1500 hours** of multilingual conversational speech across 15 categories (11 languages, with English further divided into 5 accents).
 
-|       Category       | Hours (approx.) |
-| :----------------------------: | :----------------------: |
-|  English (American)  |       100       |
-|  English (British)   |       100       |
-| English (Australian) |       100       |
-|   English (Indian)   |       100       |
-| English (Philippine) |       100       |
-|        French        |       100       |
-|        German        |       100       |
-|       Italian        |       100       |
-|      Portuguese      |       100       |
-|       Spanish        |       100       |
-|       Japanese       |       100       |
-|        Korean        |       100       |
-|       Russian        |       100       |
-|         Thai         |       100       |
-|      Vietnamese      |       100       |
-|      **Total**       |    **~1500**    |
-
+| Category             | Hours | Category        | Hours | Category       | Hours |
+|----------------------|-------|-----------------|-------|----------------|-------|
+| English (American)   | 100   | English (Indian)| 100   | Italian        | 100   |
+| English (British)    | 100   | English (Phil.) | 100   | Portuguese     | 100   |
+| English (Australian) | 100   | French          | 100   | Spanish        | 100   |
+|                      |       | German          | 100   | Japanese       | 100   |
+| Korean               | 100   | Russian         | 100   | Thai           | 100   |
+| Vietnamese           | 100   | **Total**       | **~1500** |                |       |
 **Data splits used in our experiments:**
 - **Train**: the official ~1500h training set. In our setup, each category (100h) is divided into **98h for training** and **2h for validation**, resulting in a total of ~1470h train and ~30h valid.  
 - **Valid**: the held-out **2h × 15 categories (≈30h)** subset from the training data, used for supervised model training and model selection.  
